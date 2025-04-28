@@ -1,3 +1,6 @@
+:root{
+  --bck-img: url('../assets/images/25.png')
+}
 * {
   box-sizing: border-box;
 }
@@ -22,3 +25,41 @@ body {
   margin: 0;
   font-family: sans-serif;
 }
+
+.card{
+  position: relative;
+  width: 196px;
+  height: 211px;
+  perspective: 300px;
+}
+
+.card-back, .card-front{
+  position: absolute;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: 0.5rem;
+  background-size: cover;
+  background-position: center;
+  transition: rotate 0.3s;
+  backface-visibility: hidden;
+  box-shadow: 5px 5px 5px rgb(0 0 0/0.6);
+}
+.card-front{
+  background-image: var(--bck-img);
+  background-size: 80%;
+  background-repeat: no-repeat;
+  rotate: y 180deg;
+}
+.card-back{
+  background-color: red;
+}
+
+.card:hover .card-back{
+   rotate: y 180deg;
+ }
+ .card:hover .card-front{
+    rotate: y 360deg;
+  }
