@@ -55,3 +55,26 @@ const hideCards = setTimeout(() => {
 	}
 	clearTimeout(showCards);
 }, 2000);
+
+let cardA = '';
+let cardB = '';
+const showClickedCards = event => {
+	event.target.classList.add('card-clicked');
+
+	if (!cardA) {
+		cardA = event.target.children[0].style.cssText;
+		// console.log(`guardo cardA: ${cardA}`);
+	} else if (!cardB) {
+		cardB = event.target.children[0].style.cssText;
+
+		// console.log(`guardo cardB: ${cardB}`);
+	}
+
+	if (cardA === cardB) {
+		console.log('ta bien');
+	} else {
+		console.log('giralas');
+		//el primero me sale como giralas
+	}
+};
+gameContainerElement.addEventListener('click', showClickedCards);
