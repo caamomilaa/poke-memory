@@ -1,6 +1,4 @@
-:root{
-  --bck-img: url('../assets/images/25.png')
-}
+
 * {
   box-sizing: border-box;
 }
@@ -26,6 +24,12 @@ body {
   font-family: sans-serif;
 }
 
+.game-container{
+  display: grid;
+  grid-template-columns: repeat(4, 196px);
+  gap: 24px;
+}
+
 .card{
   position: relative;
   width: 196px;
@@ -44,22 +48,24 @@ body {
   background-size: cover;
   background-position: center;
   transition: rotate 0.3s;
-  backface-visibility: hidden;
+  backface-visibility:hidden;
+
+  /* como se va a comportar la parte de atras de algo cuando lo gires 180grados, en este caso, volverse transparente, para que la cardback se vea*/
   box-shadow: 5px 5px 5px rgb(0 0 0/0.6);
 }
 .card-front{
-  background-image: var(--bck-img);
+  background-image: var(--poke-img);
   background-size: 80%;
   background-repeat: no-repeat;
   rotate: y 180deg;
 }
 .card-back{
-  background-color: red;
+  background-color: rgb(241, 111, 165);
 }
 
-.card:hover .card-back{
+.card-clicked .card-back{
    rotate: y 180deg;
  }
- .card:hover .card-front{
+ .card-clicked .card-front{
     rotate: y 360deg;
   }
